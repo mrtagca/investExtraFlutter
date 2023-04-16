@@ -17,15 +17,19 @@ class _MyPageState extends State<MyPage> {
       appBar: BaseAppBar(title: Text("SAYFAM")),
       drawer: MenuDrawer(),
       body: Container(
-        height: 500,
+        // height: 500,
         color: Colors.blue[800],
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(7.0),
           child: Container(
-            color: Colors.grey[200],
             child: Column(
               children: [
-                Center(
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.grey[200],
+                  ),
+                  height: 435,
                   child: Column(
                     children: [
                       Card(
@@ -36,31 +40,17 @@ class _MyPageState extends State<MyPage> {
                           trailing: Icon(Icons.add_circle),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10),
-                        child: Container(
-                          child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: Colors.green,
-                                      borderRadius: BorderRadius.circular(5)),
-                                  margin: EdgeInsets.all(10),
-                                  height: 50,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors.grey,
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
-                                    margin: EdgeInsets.only(left: 10),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      )
+                      Scrollbar(
+                          child: Column(
+                        children: [
+                          test("UP"),
+                          test("DOWN"),
+                          test("NOTR"),
+                          test("DOWN"),
+                          test("UP"),
+                          Divider(),
+                        ],
+                      ))
                     ],
                   ),
                 ),
@@ -72,54 +62,98 @@ class _MyPageState extends State<MyPage> {
     );
   }
 
-  Padding test(
-      String hisse, double fiyat, double yuzdelikDegisim, String tarih) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 2, left: 10, right: 10),
-      child: Card(
-        child: ListTile(
-          leading: Padding(
-            padding: const EdgeInsets.only(top: 12),
-            child: Text(hisse),
-          ),
-          title: Padding(
-            padding: const EdgeInsets.only(left: 35),
-            child: Row(
-              children: [
-                Text(
-                  fiyat.toString(),
-                  style: TextStyle(
-                      color: Colors.green[600],
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 10, top: 8),
-                  child: Text(
-                    "%${yuzdelikDegisim}",
-                    style: TextStyle(
-                        color: Colors.green[400],
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 14, top: 8),
-                  child: Text(
-                    tarih,
-                    style: TextStyle(
-                        color: Colors.grey[600],
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ],
-            ),
-          ),
+  Container test(String priceWay) {
+    var materialColor;
 
-          //trailing: Icon(Icons.add_circle),
+    switch (priceWay) {
+      case "UP":
+        materialColor = Colors.green;
+        break;
+      case "DOWN":
+        materialColor = Colors.red;
+        break;
+      case "NOTR":
+        materialColor = Colors.grey[700];
+        break;
+      default:
+    }
+
+    return Container(
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(
+          color: Colors.grey.withOpacity(0.5),
+          spreadRadius: 5,
+          blurRadius: 7,
+          offset: Offset(0, 3), // changes position of shadow
+        )
+      ], color: materialColor, borderRadius: BorderRadius.circular(5)),
+      margin: EdgeInsets.all(10),
+      height: 50,
+      width: double.infinity,
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(2),
+        ),
+        margin: EdgeInsets.only(left: 4),
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 20, left: 10),
+              child: myFollowerItemText(
+                "GARAN",
+                fontSize: 16,
+                color: Colors.grey[850],
+                letterSpacing: 0.1,
+              ),
+            ),
+            // SizedBox(width: 70),
+            Padding(
+              padding: const EdgeInsets.only(top: 14, left: 80),
+              child: myFollowerItemText("18.9137",
+                  fontSize: 22,
+                  color: materialColor,
+                  letterSpacing: 0.1,
+                  fontWeight: FontWeight.w900),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 22, left: 10),
+              child: myFollowerItemText("%0.10",
+                  fontSize: 15,
+                  color: materialColor,
+                  fontWeight: FontWeight.w900),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 22, left: 10),
+              child: myFollowerItemText("10:32:27",
+                  fontSize: 15,
+                  color: Colors.grey[700],
+                  fontWeight: FontWeight.w900),
+            )
+          ],
         ),
       ),
+    );
+  }
+
+  Column myFollowerItemText(String text,
+      {double? fontSize,
+      Color? color,
+      double? letterSpacing,
+      EdgeInsets? edgeInsets,
+      FontWeight? fontWeight}) {
+    return Column(
+      children: [
+        Text(
+          text,
+          style: TextStyle(
+            letterSpacing: letterSpacing,
+            fontSize: fontSize,
+            color: color,
+            fontWeight: fontWeight,
+          ),
+        ),
+      ],
     );
   }
 }
