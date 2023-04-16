@@ -14,7 +14,18 @@ class _MyPageState extends State<MyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BaseAppBar(title: Text("SAYFAM")),
+      appBar: BaseAppBar(
+        title: Text("SAYFAM"),
+        actionWidgets: [
+          Padding(
+            padding: const EdgeInsets.only(right: 15.0),
+            child: IconButton(
+                onPressed: () =>
+                    {Navigator.of(context).pushNamed("myPageSettings")},
+                icon: Icon(Icons.settings)),
+          )
+        ],
+      ),
       drawer: MenuDrawer(),
       body: Container(
         // height: 500,

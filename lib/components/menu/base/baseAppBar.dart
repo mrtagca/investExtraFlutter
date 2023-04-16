@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Text title;
-  const BaseAppBar({super.key, required this.title});
+  final List<Widget>? actionWidgets;
+
+  const BaseAppBar({super.key, required this.title, this.actionWidgets});
 
   /// you can add more fields that meet your needs
 
@@ -12,12 +14,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       title: title,
       backgroundColor: Colors.blue[700],
-      actions: [
-        Padding(
-          padding: const EdgeInsets.only(right: 15.0),
-          child: Icon(Icons.settings),
-        )
-      ],
+      actions: actionWidgets,
     );
   }
 

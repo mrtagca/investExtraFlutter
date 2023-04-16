@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:investextraqnb/home.dart';
 import 'package:investextraqnb/myPage.dart';
+import 'package:investextraqnb/myPageSettings.dart';
 
 class RouteGenerator {
   static Route<dynamic>? generateRoute(RouteSettings settings) {
@@ -24,6 +25,15 @@ class RouteGenerator {
         } else if (Platform.isIOS) {
           return CupertinoPageRoute(
               builder: (context) => MyPage(), settings: settings);
+        }
+        break;
+      case "myPageSettings":
+        if (Platform.isAndroid) {
+          return MaterialPageRoute(
+              builder: (context) => ReorderableExample(), settings: settings);
+        } else if (Platform.isIOS) {
+          return CupertinoPageRoute(
+              builder: (context) => ReorderableExample(), settings: settings);
         }
         break;
       default:
