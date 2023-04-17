@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:investextraqnb/home.dart';
+import 'package:investextraqnb/investAdvise.dart';
 import 'package:investextraqnb/myPage.dart';
 import 'package:investextraqnb/myPageSettings.dart';
 
@@ -11,29 +12,30 @@ class RouteGenerator {
     switch (settings.name) {
       case "/":
         if (Platform.isAndroid) {
-          return MaterialPageRoute(
-              builder: (context) => Home(), settings: settings);
+          return AndroidRoute(Home(), settings: settings);
         } else if (Platform.isIOS) {
-          return CupertinoPageRoute(
-              builder: (context) => Home(), settings: settings);
+          return IosRoute(Home(), settings: settings);
         }
         break;
       case "myPage":
         if (Platform.isAndroid) {
-          return MaterialPageRoute(
-              builder: (context) => MyPage(), settings: settings);
+          return AndroidRoute(MyPage(), settings: settings);
         } else if (Platform.isIOS) {
-          return CupertinoPageRoute(
-              builder: (context) => MyPage(), settings: settings);
+          return IosRoute(MyPage(), settings: settings);
         }
         break;
       case "myPageSettings":
         if (Platform.isAndroid) {
-          return MaterialPageRoute(
-              builder: (context) => ReorderableExample(), settings: settings);
+          return AndroidRoute(ReorderableExample(), settings: settings);
         } else if (Platform.isIOS) {
-          return CupertinoPageRoute(
-              builder: (context) => ReorderableExample(), settings: settings);
+          return IosRoute(ReorderableExample(), settings: settings);
+        }
+        break;
+      case "investAdvise":
+        if (Platform.isAndroid) {
+          return AndroidRoute(InvestAdvise(), settings: settings);
+        } else if (Platform.isIOS) {
+          return IosRoute(InvestAdvise(), settings: settings);
         }
         break;
       default:
@@ -41,4 +43,13 @@ class RouteGenerator {
             builder: (context) => Home(), settings: settings);
     }
   }
+}
+
+MaterialPageRoute AndroidRoute(Widget widget, {RouteSettings? settings}) {
+  return MaterialPageRoute(builder: (context) => widget, settings: settings);
+}
+
+CupertinoPageRoute IosRoute(Widget widget, {RouteSettings? settings}) {
+  return CupertinoPageRoute(
+      builder: (context) => ReorderableExample(), settings: settings);
 }

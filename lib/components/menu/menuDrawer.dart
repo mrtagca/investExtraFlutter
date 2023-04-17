@@ -38,6 +38,7 @@ class MenuDrawer extends StatelessWidget {
             title: Text("SAYFAM"),
           ),
           ListTile(
+            onTap: () => {Navigator.pushNamed(context, "investAdvise")},
             leading: Icon(Icons.person_add),
             title: Text("YATIRIM DANIŞMANLIĞI"),
           ),
