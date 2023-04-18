@@ -6,6 +6,7 @@ import 'package:investextraqnb/home.dart';
 import 'package:investextraqnb/investAdvise.dart';
 import 'package:investextraqnb/myPage.dart';
 import 'package:investextraqnb/myPageSettings.dart';
+import 'package:investextraqnb/symbolDetail.dart';
 
 class RouteGenerator {
   static Route<dynamic>? generateRoute(RouteSettings settings) {
@@ -36,6 +37,13 @@ class RouteGenerator {
           return AndroidRoute(InvestAdvise(), settings: settings);
         } else if (Platform.isIOS) {
           return IosRoute(InvestAdvise(), settings: settings);
+        }
+        break;
+      case "symbolDetail":
+        if (Platform.isAndroid) {
+          return AndroidRoute(SymbolDetail(), settings: settings);
+        } else if (Platform.isIOS) {
+          return IosRoute(SymbolDetail(), settings: settings);
         }
         break;
       default:

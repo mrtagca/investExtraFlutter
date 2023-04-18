@@ -48,7 +48,12 @@ class _MyPageState extends State<MyPage> {
                         child: ListTile(
                           leading: Icon(Icons.analytics),
                           title: Text("TAKİP ETTİKLERİM"),
-                          trailing: Icon(Icons.add_circle),
+                          trailing: IconButton(
+                              onPressed: () => {
+                                    Navigator.of(context)
+                                        .pushNamed("symbolDetail")
+                                  },
+                              icon: Icon(Icons.add_circle)),
                         ),
                       ),
                       Scrollbar(
@@ -70,6 +75,7 @@ class _MyPageState extends State<MyPage> {
           ),
         ),
       ),
+      
     );
   }
 
