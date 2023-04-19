@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:investextraqnb/alarm.dart';
 import 'package:investextraqnb/components/charts/syncfusion/SyncFusionCrosshairChart.dart';
 import 'package:investextraqnb/components/menu/base/appScaffold.dart';
 import 'package:investextraqnb/components/menu/base/baseAppBar.dart';
@@ -40,8 +41,10 @@ class _SymbolDetailState extends State<SymbolDetail> {
               leading: Icon(Icons.trending_up),
               title: Text("SEMBOL DETAY"),
               trailing: IconButton(
-                  onPressed: () =>
-                      {Navigator.of(context).pushNamed("symbolDetail")},
+                  onPressed: () => {
+                        Navigator.of(context).pushNamed("alarmCreate",
+                            arguments: Alarm("XAUUSD", 75.71))
+                      },
                   icon: Icon(Icons.notification_add)),
             ),
           ),
@@ -178,7 +181,7 @@ class _SymbolDetailState extends State<SymbolDetail> {
                   child: Text(
                     value.toStringAsFixed(valueDigit),
                     style: TextStyle(
-                        fontFamily: "RobotoBold",
+                        // fontFamily: Theme.of(context).,
                         color: valueColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 17),

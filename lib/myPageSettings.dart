@@ -10,7 +10,7 @@ class ReorderableExample extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<ReorderableExample> {
-  final List<int> _items = List<int>.generate(15, (int index) => index);
+  final List<int> _items = List<int>.generate(3, (int index) => index);
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +77,7 @@ class _MyStatefulWidgetState extends State<ReorderableExample> {
           ListTile(
               key: Key('$index'),
               tileColor: _items[index].isOdd ? oddItemColor : evenItemColor,
-              title: Text('Item ${_items[index]}'),
+              title: Text('Ayar ${_items[index]}'),
               trailing: FittedBox(
                 fit: BoxFit.fill,
                 child: Row(

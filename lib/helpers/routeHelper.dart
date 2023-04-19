@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:investextraqnb/alarm.dart';
 import 'package:investextraqnb/home.dart';
 import 'package:investextraqnb/investAdvise.dart';
 import 'package:investextraqnb/myPage.dart';
@@ -44,6 +45,13 @@ class RouteGenerator {
           return AndroidRoute(SymbolDetail(), settings: settings);
         } else if (Platform.isIOS) {
           return IosRoute(SymbolDetail(), settings: settings);
+        }
+        break;
+      case "alarmCreate":
+        if (Platform.isAndroid) {
+          return AndroidRoute(SymbolAlarm(), settings: settings);
+        } else if (Platform.isIOS) {
+          return IosRoute(SymbolAlarm(), settings: settings);
         }
         break;
       default:
