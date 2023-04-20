@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:investextraqnb/components/alarm/alartmStateItem.dart';
 import 'package:investextraqnb/components/menu/base/baseAppBar.dart';
 import 'package:investextraqnb/components/menu/base/basePanel.dart';
 
@@ -19,11 +20,10 @@ class SymbolAlarm extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Container(
               decoration: BoxDecoration(
-                  // color: Colors.grey[200],
-                  color: Color.fromRGBO(230, 236, 238, 0.6),
+                  color: Colors.blueGrey[100],
                   borderRadius: BorderRadius.circular(6)),
               width: MediaQuery.of(context).size.width,
-              height: 300,
+              height: 380,
               child: Column(
                 children: [
                   Padding(
@@ -49,6 +49,15 @@ class SymbolAlarm extends StatelessWidget {
                       ),
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
+                    child: SizedBox(
+                      height: 300, // constrain height
+                      child: Column(
+                        children: [AlarmStateItem()],
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
