@@ -26,7 +26,11 @@ class _SymbolDetailState extends State<SymbolDetail> {
         actionWidgets: [
           Padding(
             padding: const EdgeInsets.only(right: 15),
-            child: Icon(Icons.notifications),
+            child: IconButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed("alarms");
+                },
+                icon: Icon(Icons.notifications)),
           )
         ],
       ),
