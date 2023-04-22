@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:investextraqnb/components/menu/base/appScaffold.dart';
 import 'package:investextraqnb/components/menu/base/baseAppBar.dart';
 import 'package:investextraqnb/components/menu/menuDrawer.dart';
+import 'package:investextraqnb/components/news/newsItem.dart';
 
 class MyPage extends StatefulWidget {
   const MyPage({super.key});
@@ -28,58 +29,111 @@ class _MyPageState extends State<MyPage> {
       ),
       drawer: MenuDrawer(),
       body: Container(
-        // height: 500,
+        height: double.infinity,
         color: Colors.blue[800],
         child: Padding(
           padding: const EdgeInsets.all(7.0),
-          child: Container(
-            child: Column(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.grey[200],
+          child: SingleChildScrollView(
+            child: Container(
+              child: Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.grey[200],
+                    ),
+                    height: 300,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Card(
+                            color: Colors.grey[200],
+                            child: ListTile(
+                              leading: Icon(Icons.analytics),
+                              title: Text(
+                                "TAKİP ETTİKLERİM",
+                                style: TextStyle(
+                                    fontFamily: "RobotoBold",
+                                    letterSpacing: 0.5,
+                                    color: Colors.grey[700]),
+                              ),
+                              trailing: IconButton(
+                                  onPressed: () => {
+                                        Navigator.of(context)
+                                            .pushNamed("symbolDetail")
+                                      },
+                                  icon: Icon(Icons.add_circle)),
+                            ),
+                          ),
+                          Scrollbar(
+                              child: Column(
+                            children: [
+                              generateStockItem("UP"),
+                              generateStockItem("DOWN"),
+                              generateStockItem("NOTR"),
+                              generateStockItem("UP"),
+                              generateStockItem("DOWN"),
+                              generateStockItem("NOTR"),
+                              Divider(),
+                            ],
+                          ))
+                        ],
+                      ),
+                    ),
                   ),
-                  height: 435,
-                  child: Column(
-                    children: [
-                      Card(
-                        color: Colors.grey[200],
-                        child: ListTile(
-                          leading: Icon(Icons.analytics),
-                          title: Text("TAKİP ETTİKLERİM"),
-                          trailing: IconButton(
-                              onPressed: () => {
-                                    Navigator.of(context)
-                                        .pushNamed("symbolDetail")
-                                  },
-                              icon: Icon(Icons.add_circle)),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Container(
+                      height: 300,
+                      decoration: BoxDecoration(
+                          color: Colors.grey[200],
+                          borderRadius: BorderRadius.circular(10)),
+                      child: SingleChildScrollView(
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 30),
+                          child: Column(
+                            children: [
+                              Card(
+                                color: Colors.grey[200],
+                                child: ListTile(
+                                  leading: Icon(Icons.newspaper),
+                                  title: Text(
+                                    "Y.D. SON GÜNCELLEMELER",
+                                    style: TextStyle(
+                                        fontFamily: "RobotoBold",
+                                        color: Colors.grey[700],
+                                        letterSpacing: 0.5),
+                                  ),
+                                ),
+                              ),
+                              generateNewsItem(),
+                              generateNewsItem(),
+                              generateNewsItem(),
+                              generateNewsItem(),
+                              generateNewsItem(),
+                            ],
+                          ),
                         ),
                       ),
-                      Scrollbar(
-                          child: Column(
-                        children: [
-                          test("UP"),
-                          test("DOWN"),
-                          test("NOTR"),
-                          test("DOWN"),
-                          test("UP"),
-                          Divider(),
-                        ],
-                      ))
-                    ],
-                  ),
-                ),
-              ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
       ),
-      
     );
   }
 
-  Container test(String priceWay) {
+  Widget generateNewsItem() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 5, right: 15, left: 15, bottom: 5),
+      child: NewsItem(),
+    );
+  }
+
+  Container generateStockItem(String priceWay) {
     var materialColor;
 
     switch (priceWay) {
