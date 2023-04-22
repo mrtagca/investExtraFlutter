@@ -26,15 +26,9 @@ class _AlarmPageState extends State<AlarmPage> {
             return Slidable(
               endActionPane: ActionPane(motion: StretchMotion(), children: [
                 SlidableAction(
-                  backgroundColor: Colors.grey,
-                  icon: Icons.edit,
-                  label: 'Edit',
-                  onPressed: (context) => _onDismissed(),
-                ),
-                SlidableAction(
                   backgroundColor: Colors.red,
                   icon: Icons.delete,
-                  label: 'Delete',
+                  //label: 'Delete',
                   onPressed: (context) => _onDismissed(),
                 )
               ]),
@@ -52,11 +46,11 @@ class _AlarmPageState extends State<AlarmPage> {
       title: Text(alarm.equity),
       subtitle:
           Text("Fiyat ${alarm.value} ${alarm.alarmState.toString()} ise uyar"),
-      leading: CircleAvatar(
-        radius: 30,
-        backgroundImage: NetworkImage(
-            "https://icons.veryicon.com/png/o/miscellaneous/ionicons-1/ios-notifications-5.png"),
-      ),
+      // leading: CircleAvatar(
+      //   radius: 30,
+      //   backgroundImage: NetworkImage(
+      //       "https://icons.veryicon.com/png/o/miscellaneous/ionicons-1/ios-notifications-5.png"),
+      // ),
     );
   }
 }

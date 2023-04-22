@@ -39,7 +39,10 @@ class _MenuDrawerState extends State<MenuDrawer> {
             Navigator.of(context).pushNamed("investAdvise");
           }, leading: Icon(Icons.person_add)),
           _addMenuItem(Text("CHAT"), leading: Icon(Icons.person_add)),
-          _addMenuItem(Text("FİYATLAR"), leading: Icon(Icons.analytics)),
+          _addMenuItem(Text("FİYATLAR"), leading: Icon(Icons.analytics),
+              onTap: () {
+            Navigator.of(context).pushNamed("prices");
+          }),
           _addMenuItem(Text("ÜRÜN BİLGİLERİ"),
               leading: Icon(Icons.document_scanner)),
           _addMenuItem(Text("PROFİLİM"),

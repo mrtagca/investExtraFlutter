@@ -23,7 +23,7 @@ class SymbolAlarm extends StatelessWidget {
                   color: Colors.blueGrey[100],
                   borderRadius: BorderRadius.circular(6)),
               width: MediaQuery.of(context).size.width,
-              height: 380,
+              //height: 380,
               child: Column(
                 children: [
                   Padding(

@@ -9,6 +9,7 @@ import 'package:investextraqnb/investAdvise.dart';
 import 'package:investextraqnb/login.dart';
 import 'package:investextraqnb/myPage.dart';
 import 'package:investextraqnb/myPageSettings.dart';
+import 'package:investextraqnb/prices.dart';
 import 'package:investextraqnb/symbolDetail.dart';
 
 class RouteGenerator {
@@ -75,6 +76,13 @@ class RouteGenerator {
           return AndroidRoute(AlarmPage(), settings: settings);
         } else if (Platform.isIOS) {
           return IosRoute(AlarmPage(), settings: settings);
+        }
+        break;
+      case "prices":
+        if (Platform.isAndroid) {
+          return AndroidRoute(Prices(), settings: settings);
+        } else if (Platform.isIOS) {
+          return IosRoute(Prices(), settings: settings);
         }
         break;
       default:
