@@ -32,9 +32,6 @@ class _MenuDrawerState extends State<MenuDrawer> {
                   ),
                 ),
               )),
-          _addMenuItem(Text("ANASAYFA"), onTap: () {
-            Navigator.of(context).pushNamed("home");
-          }, leading: Icon(Icons.home)),
           _addMenuItem(Text("SAYFAM"), onTap: () {
             Navigator.of(context).pushNamed("myPage");
           }, leading: Icon(Icons.person)),

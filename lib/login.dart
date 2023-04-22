@@ -86,7 +86,7 @@ class _LoginState extends State<Login> {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               content:
                                   Text("Email: $_email - Phone: $_phone")));
-                          Navigator.of(context).pushNamed("home");
+                          Navigator.of(context).pushNamed("myPage");
                         }
                       },
                       child: Text("KAYDET"))
