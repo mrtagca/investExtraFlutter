@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:investextraqnb/components/investAdvise/investAdviseTab.dart';
 import 'package:investextraqnb/components/menu/base/appScaffold.dart';
 
 class InvestAdvise extends StatefulWidget {
@@ -11,6 +12,6 @@ class InvestAdvise extends StatefulWidget {
 class _InvestAdviseState extends State<InvestAdvise> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return InvestAdviseTab();
   }
 }

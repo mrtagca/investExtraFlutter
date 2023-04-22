@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:investextraqnb/components/menu/menuDrawer.dart';
 import 'package:investextraqnb/helpers/routeHelper.dart';
 import 'package:investextraqnb/home.dart';
+import 'package:investextraqnb/login.dart';
 
 import 'components/menu/base/appScaffold.dart';
 
@@ -23,9 +24,10 @@ class _HomePageState extends State<HomePage> {
       theme: ThemeData(fontFamily: "RobotoBold"),
       onGenerateRoute: RouteGenerator.generateRoute,
       debugShowCheckedModeBanner: false,
-      home: AppScaffold(
-        widget: Home(),
-      ),
+      // home: AppScaffold(
+      //   widget: Login(),
+      // ),
+      home: Login(),
     );
   }
 }

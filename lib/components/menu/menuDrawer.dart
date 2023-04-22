@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class MenuDrawer extends StatelessWidget {
+class MenuDrawer extends StatefulWidget {
   const MenuDrawer({super.key});
 
+  @override
+  State<MenuDrawer> createState() => _MenuDrawerState();
+}
+
+class _MenuDrawerState extends State<MenuDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -27,38 +32,35 @@ class MenuDrawer extends StatelessWidget {
                   ),
                 ),
               )),
-          ListTile(
-            onTap: () => {Navigator.pushNamed(context, "/")},
-            leading: Icon(Icons.home),
-            title: Text("ANASAYFA"),
-          ),
-          ListTile(
-            onTap: () => {Navigator.pushNamed(context, "myPage")},
-            leading: Icon(Icons.person),
-            title: Text("SAYFAM"),
-          ),
-          ListTile(
-            onTap: () => {Navigator.pushNamed(context, "investAdvise")},
-            leading: Icon(Icons.person_add),
-            title: Text("YATIRIM DANIŞMANLIĞI"),
-          ),
-          ListTile(
-            leading: Icon(Icons.chat),
-            title: Text("CHAT"),
-          ),
-          ListTile(
-            leading: Icon(Icons.analytics),
-            title: Text("FİYATLAR"),
-          ),
-          ListTile(
-            leading: Icon(Icons.document_scanner),
-            title: Text("ÜRÜN BİLGİLERİ"),
-          ),
-          ListTile(
-            leading: Icon(Icons.supervised_user_circle),
-            title: Text("PROFİLİM"),
-          )
+          _addMenuItem(Text("ANASAYFA"), onTap: () {
+            Navigator.of(context).pushNamed("home");
+          }, leading: Icon(Icons.home)),
+          _addMenuItem(Text("SAYFAM"), onTap: () {
+            Navigator.of(context).pushNamed("myPage");
+          }, leading: Icon(Icons.person)),
+          _addMenuItem(Text("YATIRIM DANIŞMANLIĞI"), onTap: () {
+            Navigator.of(context).pushNamed("investAdvise");
+          }, leading: Icon(Icons.person_add)),
+          _addMenuItem(Text("CHAT"), leading: Icon(Icons.person_add)),
+          _addMenuItem(Text("FİYATLAR"), leading: Icon(Icons.analytics)),
+          _addMenuItem(Text("ÜRÜN BİLGİLERİ"),
+              leading: Icon(Icons.document_scanner)),
+          _addMenuItem(Text("PROFİLİM"),
+              leading: Icon(Icons.supervised_user_circle)),
         ],
+      ),
+    );
+  }
+
+  InkWell _addMenuItem(Widget title,
+      {void Function()? onTap, Widget? leading, Widget? trailing}) {
+    return InkWell(
+      splashColor: Colors.cyan,
+      onTap: onTap,
+      child: ListTile(
+        leading: leading,
+        title: title,
+        trailing: trailing,
       ),
     );
   }

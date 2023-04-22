@@ -6,6 +6,7 @@ import 'package:investextraqnb/alarm.dart';
 import 'package:investextraqnb/alarmPage.dart';
 import 'package:investextraqnb/home.dart';
 import 'package:investextraqnb/investAdvise.dart';
+import 'package:investextraqnb/login.dart';
 import 'package:investextraqnb/myPage.dart';
 import 'package:investextraqnb/myPageSettings.dart';
 import 'package:investextraqnb/symbolDetail.dart';
@@ -18,6 +19,20 @@ class RouteGenerator {
           return AndroidRoute(Home(), settings: settings);
         } else if (Platform.isIOS) {
           return IosRoute(Home(), settings: settings);
+        }
+        break;
+      case "home":
+        if (Platform.isAndroid) {
+          return AndroidRoute(Home(), settings: settings);
+        } else if (Platform.isIOS) {
+          return IosRoute(Home(), settings: settings);
+        }
+        break;
+      case "login":
+        if (Platform.isAndroid) {
+          return AndroidRoute(Login(), settings: settings);
+        } else if (Platform.isIOS) {
+          return IosRoute(Login(), settings: settings);
         }
         break;
       case "myPage":
