@@ -89,6 +89,13 @@ flutter:
     - family: RobotoBoldItalic
       fonts:
         - asset: assets/fonts/roboto/Roboto-BoldItalic.ttf 
+    - family: RobotoRegular
+      fonts:
+        - asset: assets/fonts/roboto/Roboto-Regular.ttf 
+    - family: RobotoMedium
+      fonts:
+        - asset: assets/fonts/roboto/Roboto-Medium.ttf 
+        
         
       # uses-material-design: true
   #       - asset: fonts/Schyler-Italic.ttf
