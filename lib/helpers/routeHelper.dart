@@ -4,12 +4,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:investextraqnb/alarm.dart';
 import 'package:investextraqnb/alarmPage.dart';
+import 'package:investextraqnb/followingSettings.dart';
 import 'package:investextraqnb/home.dart';
 import 'package:investextraqnb/investAdvise.dart';
 import 'package:investextraqnb/login.dart';
 import 'package:investextraqnb/myPage.dart';
 import 'package:investextraqnb/myPageSettings.dart';
 import 'package:investextraqnb/prices.dart';
+import 'package:investextraqnb/symbolAdd.dart';
 import 'package:investextraqnb/symbolDetail.dart';
 
 class RouteGenerator {
@@ -83,6 +85,20 @@ class RouteGenerator {
           return AndroidRoute(Prices(), settings: settings);
         } else if (Platform.isIOS) {
           return IosRoute(Prices(), settings: settings);
+        }
+        break;
+      case "followingSettings":
+        if (Platform.isAndroid) {
+          return AndroidRoute(FollowingSettings(), settings: settings);
+        } else if (Platform.isIOS) {
+          return IosRoute(FollowingSettings(), settings: settings);
+        }
+        break;
+      case "symbolAdd":
+        if (Platform.isAndroid) {
+          return AndroidRoute(SymbolAdd(), settings: settings);
+        } else if (Platform.isIOS) {
+          return IosRoute(SymbolAdd(), settings: settings);
         }
         break;
       default:

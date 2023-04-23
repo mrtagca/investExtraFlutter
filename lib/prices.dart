@@ -24,8 +24,11 @@ class _PricesState extends State<Prices> {
           actions: [
             Padding(
               padding: const EdgeInsets.only(right: 0),
-              child:
-                  IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
+              child: IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed("alarms");
+                  },
+                  icon: Icon(Icons.notifications)),
             )
           ],
         ),
@@ -47,7 +50,12 @@ class _PricesState extends State<Prices> {
                       children: [
                         ListTile(
                           leading: Icon(Icons.analytics),
-                          trailing: Icon(Icons.add_circle),
+                          trailing: IconButton(
+                              onPressed: () {
+                                Navigator.of(context)
+                                    .pushNamed("followingSettings");
+                              },
+                              icon: Icon(Icons.add_circle_outline_sharp)),
                           title: Text(
                             "TAKİP ETTİKLERİM",
                             style: TextStyle(
