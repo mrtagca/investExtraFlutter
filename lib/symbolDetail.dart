@@ -21,11 +21,17 @@ class _SymbolDetailState extends State<SymbolDetail> {
 
   @override
   Widget build(BuildContext context) {
+    String symbol = "INSTRUMENT_NAME";
+
+    if (ModalRoute.of(context)!.settings.arguments != null) {
+      symbol = ModalRoute.of(context)!.settings.arguments as String;
+    }
+
     return BaseWillPopScope(
       isPopable: true,
       child: Scaffold(
         appBar: BaseAppBar(
-          title: Text("SYMBOL"),
+          title: Text(symbol),
           actionWidgets: [
             Padding(
               padding: const EdgeInsets.only(right: 15),
@@ -50,7 +56,8 @@ class _SymbolDetailState extends State<SymbolDetail> {
                 trailing: IconButton(
                     onPressed: () => {
                           Navigator.of(context).pushNamed("alarmCreate",
-                              arguments: Alarm("XAUUSD", 75.71))
+                              arguments:
+                                  Alarm(symbol ?? "INSTRUMENT_NAME", 75.71))
                         },
                     icon: Icon(Icons.notification_add_rounded)),
               ),

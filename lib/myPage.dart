@@ -4,6 +4,7 @@ import 'package:investextraqnb/components/menu/base/baseAppBar.dart';
 import 'package:investextraqnb/components/menu/menuDrawer.dart';
 import 'package:investextraqnb/components/news/newsItem.dart';
 import 'package:investextraqnb/components/pop/baseWillPopScope.dart';
+import 'package:investextraqnb/components/prices/followerStockItem.dart';
 
 class MyPage extends StatefulWidget {
   const MyPage({super.key});
@@ -22,7 +23,7 @@ class _MyPageState extends State<MyPage> {
           title: Text("SAYFAM"),
           actionWidgets: [
             Padding(
-              padding: const EdgeInsets.only(right: 15.0),
+              padding: const EdgeInsets.only(right: 0.0),
               child: IconButton(
                   onPressed: () =>
                       {Navigator.of(context).pushNamed("myPageSettings")},
@@ -71,12 +72,40 @@ class _MyPageState extends State<MyPage> {
                             Scrollbar(
                                 child: Column(
                               children: [
-                                generateStockItem("UP"),
-                                generateStockItem("DOWN"),
-                                generateStockItem("NOTR"),
-                                generateStockItem("UP"),
-                                generateStockItem("DOWN"),
-                                generateStockItem("NOTR"),
+                                FollowerStockItem(
+                                  stockItemTickType: StockItemTickType.Up,
+                                  instrumentName: "USDTRY",
+                                  instrumentPrice: 18.9134,
+                                  instrumentChangeRate: 0.10,
+                                  instrumentChangeDate: DateTime(2023),
+                                ),
+                                FollowerStockItem(
+                                  stockItemTickType: StockItemTickType.Down,
+                                  instrumentName: "GARAN",
+                                  instrumentPrice: 33.11,
+                                  instrumentChangeRate: -0.5,
+                                  instrumentChangeDate: DateTime(2023),
+                                ),
+                                FollowerStockItem(
+                                  stockItemTickType: StockItemTickType.Notr,
+                                  instrumentName: "EREGL",
+                                  instrumentPrice: 10.11,
+                                  instrumentChangeRate: 0,
+                                  instrumentChangeDate: DateTime(2023),
+                                ),
+                                FollowerStockItem(
+                                  stockItemTickType: StockItemTickType.Up,
+                                  instrumentName: "USDTRY",
+                                  instrumentPrice: 18.9134,
+                                  instrumentChangeRate: 0.10,
+                                  instrumentChangeDate: DateTime(2023),
+                                ),
+                                // generateStockItem("UP"),
+                                // generateStockItem("DOWN"),
+                                // generateStockItem("NOTR"),
+                                // generateStockItem("UP"),
+                                // generateStockItem("DOWN"),
+                                // generateStockItem("NOTR"),
                                 Divider(),
                               ],
                             ))
