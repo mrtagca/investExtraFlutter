@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:investextraqnb/components/menu/menuDrawer.dart';
 import 'package:investextraqnb/components/pop/baseWillPopScope.dart';
@@ -33,11 +34,12 @@ class _PricesState extends State<Prices> {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 15, left: 10, right: 10),
+                  padding: const EdgeInsets.only(
+                      top: 20, left: 10, right: 10, bottom: 20),
                   child: Container(
                     // height: MediaQuery.of(context).size.height,
                     decoration: BoxDecoration(
-                        color: Colors.grey[400],
+                        color: Colors.grey[200],
                         borderRadius: BorderRadius.circular(10)),
                     child: Column(
                       children: [
@@ -52,17 +54,137 @@ class _PricesState extends State<Prices> {
                             ),
                           ),
                         ),
+                        Divider(
+                          height: 10,
+                        ),
                         Column(
                           children: [
-                            FollowerStockItem(),
-                            FollowerStockItem(),
-                            FollowerStockItem(),
-                            FollowerStockItem(),
-                            FollowerStockItem(),
-                            FollowerStockItem(),
-                            FollowerStockItem(),
-                            FollowerStockItem(),
-                            FollowerStockItem(),
+                            FollowerStockItem(
+                              stockItemTickType: StockItemTickType.Up,
+                              instrumentName: "USDTRY",
+                              instrumentPrice: 18.9134,
+                              instrumentChangeRate: 0.10,
+                              instrumentChangeDate: DateTime(2023),
+                            ),
+                            FollowerStockItem(
+                              stockItemTickType: StockItemTickType.Down,
+                              instrumentName: "GARAN",
+                              instrumentPrice: 33.11,
+                              instrumentChangeRate: -0.5,
+                              instrumentChangeDate: DateTime(2023),
+                            ),
+                            FollowerStockItem(
+                              stockItemTickType: StockItemTickType.Notr,
+                              instrumentName: "EREGL",
+                              instrumentPrice: 10.11,
+                              instrumentChangeRate: 0,
+                              instrumentChangeDate: DateTime(2023),
+                            ),
+                            FollowerStockItem(
+                              stockItemTickType: StockItemTickType.Up,
+                              instrumentName: "USDTRY",
+                              instrumentPrice: 18.9134,
+                              instrumentChangeRate: 0.10,
+                              instrumentChangeDate: DateTime(2023),
+                            ),
+                            FollowerStockItem(
+                              stockItemTickType: StockItemTickType.Down,
+                              instrumentName: "GARAN",
+                              instrumentPrice: 33.11,
+                              instrumentChangeRate: -0.5,
+                              instrumentChangeDate: DateTime(2023),
+                            ),
+                            FollowerStockItem(
+                              stockItemTickType: StockItemTickType.Notr,
+                              instrumentName: "EREGL",
+                              instrumentPrice: 10.11,
+                              instrumentChangeRate: 0,
+                              instrumentChangeDate: DateTime(2023),
+                            ),
+                            FollowerStockItem(
+                              stockItemTickType: StockItemTickType.Up,
+                              instrumentName: "USDTRY",
+                              instrumentPrice: 18.9134,
+                              instrumentChangeRate: 0.10,
+                              instrumentChangeDate: DateTime(2023),
+                            ),
+                            FollowerStockItem(
+                              stockItemTickType: StockItemTickType.Down,
+                              instrumentName: "GARAN",
+                              instrumentPrice: 33.11,
+                              instrumentChangeRate: -0.5,
+                              instrumentChangeDate: DateTime(2023),
+                            ),
+                            FollowerStockItem(
+                              stockItemTickType: StockItemTickType.Notr,
+                              instrumentName: "EREGL",
+                              instrumentPrice: 10.11,
+                              instrumentChangeRate: 0,
+                              instrumentChangeDate: DateTime(2023),
+                            ),
+                            FollowerStockItem(
+                              stockItemTickType: StockItemTickType.Up,
+                              instrumentName: "USDTRY",
+                              instrumentPrice: 18.9134,
+                              instrumentChangeRate: 0.10,
+                              instrumentChangeDate: DateTime(2023),
+                            ),
+                            FollowerStockItem(
+                              stockItemTickType: StockItemTickType.Down,
+                              instrumentName: "GARAN",
+                              instrumentPrice: 33.11,
+                              instrumentChangeRate: -0.5,
+                              instrumentChangeDate: DateTime(2023),
+                            ),
+                            FollowerStockItem(
+                              stockItemTickType: StockItemTickType.Notr,
+                              instrumentName: "EREGL",
+                              instrumentPrice: 10.11,
+                              instrumentChangeRate: 0,
+                              instrumentChangeDate: DateTime(2023),
+                            ),
+                            FollowerStockItem(
+                              stockItemTickType: StockItemTickType.Up,
+                              instrumentName: "USDTRY",
+                              instrumentPrice: 18.9134,
+                              instrumentChangeRate: 0.10,
+                              instrumentChangeDate: DateTime(2023),
+                            ),
+                            FollowerStockItem(
+                              stockItemTickType: StockItemTickType.Down,
+                              instrumentName: "GARAN",
+                              instrumentPrice: 33.11,
+                              instrumentChangeRate: -0.5,
+                              instrumentChangeDate: DateTime(2023),
+                            ),
+                            FollowerStockItem(
+                              stockItemTickType: StockItemTickType.Notr,
+                              instrumentName: "EREGL",
+                              instrumentPrice: 10.11,
+                              instrumentChangeRate: 0,
+                              instrumentChangeDate: DateTime(2023),
+                            ),
+                            FollowerStockItem(
+                              stockItemTickType: StockItemTickType.Up,
+                              instrumentName: "USDTRY",
+                              instrumentPrice: 18.9134,
+                              instrumentChangeRate: 0.10,
+                              instrumentChangeDate: DateTime(2023),
+                            ),
+                            FollowerStockItem(
+                              stockItemTickType: StockItemTickType.Down,
+                              instrumentName: "GARAN",
+                              instrumentPrice: 33.11,
+                              instrumentChangeRate: -0.5,
+                              instrumentChangeDate: DateTime(2023),
+                            ),
+                            FollowerStockItem(
+                              stockItemTickType: StockItemTickType.Notr,
+                              instrumentName: "EREGL",
+                              instrumentPrice: 10.11,
+                              instrumentChangeRate: 0,
+                              instrumentChangeDate: DateTime(2023),
+                            ),
                           ],
                         )
                       ],
@@ -78,13 +200,62 @@ class _PricesState extends State<Prices> {
   }
 }
 
-class FollowerStockItem extends StatelessWidget {
+class FollowerStockItem extends StatefulWidget {
+  final StockItemTickType stockItemTickType;
+  final String instrumentName;
+  final double instrumentPrice;
+  final double instrumentChangeRate;
+  final DateTime instrumentChangeDate;
+
   const FollowerStockItem({
     super.key,
+    required this.stockItemTickType,
+    required this.instrumentName,
+    required this.instrumentPrice,
+    required this.instrumentChangeRate,
+    required this.instrumentChangeDate,
   });
 
   @override
+  State<FollowerStockItem> createState() => _FollowerStockItemState();
+}
+
+enum StockItemTickType {
+  Up,
+  Down,
+  Notr,
+}
+
+class _FollowerStockItemState extends State<FollowerStockItem> {
+  late Color _color;
+  late String _instrumentName;
+  late double _instrumentPrice;
+  late double _instrumentChangeRate;
+  //late DateTime _instrumentChangeDate;
+
+  @override
   Widget build(BuildContext context) {
+    switch (widget.stockItemTickType) {
+      case StockItemTickType.Down:
+        _color = Colors.red;
+        break;
+      case StockItemTickType.Up:
+        _color = Colors.green;
+        break;
+      case StockItemTickType.Notr:
+        _color = Colors.grey;
+        break;
+      default:
+        break;
+    }
+
+    setState(() {
+      _instrumentName = widget.instrumentName;
+      _instrumentPrice = widget.instrumentPrice;
+      _instrumentChangeRate = widget.instrumentChangeRate;
+      // _instrumentChangeDate = widget.instrumentChangeDate;
+    });
+
     return Container(
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
       child: InkWell(
@@ -93,14 +264,15 @@ class FollowerStockItem extends StatelessWidget {
         },
         child: Ink(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding:
+                const EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 15),
             child: Row(
               children: [
                 Container(
                   height: 50,
                   width: 5,
                   decoration: BoxDecoration(
-                      color: Colors.green,
+                      color: _color,
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(5),
                           bottomLeft: Radius.circular(5))),
@@ -120,45 +292,56 @@ class FollowerStockItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.baseline,
                       textBaseline: TextBaseline.ideographic,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20, left: 10),
-                          child: Text(
-                            "USDTRY",
-                            style: TextStyle(
-                                fontFamily: "RobotoBold",
-                                fontSize: 18,
-                                color: Colors.grey),
+                        Container(
+                          width: 100,
+                          //color: Colors.amber,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 20, left: 10),
+                            child: Text(
+                              _instrumentName,
+                              style: TextStyle(
+                                  fontFamily: "RobotoBold",
+                                  fontSize: 18,
+                                  color: Colors.grey),
+                            ),
                           ),
                         ),
-                        Spacer(),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Text(
-                            "18.9137",
-                            style: TextStyle(
-                                fontSize: 25,
-                                fontFamily: "RobotoBold",
-                                color: Colors.green),
+                        Expanded(
+                          child: Container(
+                            margin: EdgeInsets.only(left: 15),
+                            child: Text(
+                              _instrumentPrice.toStringAsFixed(4),
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontFamily: "RobotoBold",
+                                  color: _color),
+                            ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Text(
-                            "%0.10",
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontFamily: "RobotoBold",
-                                color: Colors.green),
+                        Expanded(
+                          child: Container(
+                            margin: EdgeInsets.only(left: 20),
+                            //color: Colors.amber,
+                            child: Text(
+                              "%" + _instrumentChangeRate.toStringAsFixed(2),
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontFamily: "RobotoBold",
+                                  color: _color),
+                            ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10, right: 10),
-                          child: Text(
-                            "10:34:47",
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontFamily: "RobotoBold",
-                                color: Colors.grey),
+                        Expanded(
+                          child: Container(
+                            margin: EdgeInsets.only(left: 10),
+                            // color: Colors.cyan,
+                            child: Text(
+                              "10:34:47",
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontFamily: "RobotoBold",
+                                  color: Colors.grey),
+                            ),
                           ),
                         ),
                       ],
