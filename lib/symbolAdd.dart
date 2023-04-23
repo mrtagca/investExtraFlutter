@@ -33,7 +33,9 @@ class _SymbolAddState extends State<SymbolAdd> {
                   height: MediaQuery.of(context).size.height,
                   decoration: BoxDecoration(color: Colors.white),
                   child: ListView(children: [
-                    generateSymbolTypeItem("Tüm Semboller", () {}),
+                    generateSymbolTypeItem("Tüm Semboller", () {
+                      Navigator.of(context).pushNamed("symbolAddDetail");
+                    }),
                     generateSymbolTypeItem(
                         "Borsa Yatırım Fonu Endeksleri", () {}),
                     generateSymbolTypeItem("BIST Hisse Senedi", () {}),
