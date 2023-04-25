@@ -10,6 +10,7 @@ import 'package:investextraqnb/investAdvise.dart';
 import 'package:investextraqnb/login.dart';
 import 'package:investextraqnb/myPage.dart';
 import 'package:investextraqnb/myPageSettings.dart';
+import 'package:investextraqnb/myProfile.dart';
 import 'package:investextraqnb/prices.dart';
 import 'package:investextraqnb/symbolAdd.dart';
 import 'package:investextraqnb/symbolAddDetail.dart';
@@ -107,6 +108,13 @@ class RouteGenerator {
           return AndroidRoute(SymbolAddDetail(), settings: settings);
         } else if (Platform.isIOS) {
           return IosRoute(SymbolAddDetail(), settings: settings);
+        }
+        break;
+      case "myProfile":
+        if (Platform.isAndroid) {
+          return AndroidRoute(MyProfile(), settings: settings);
+        } else if (Platform.isIOS) {
+          return IosRoute(MyProfile(), settings: settings);
         }
         break;
       default:

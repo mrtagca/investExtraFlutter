@@ -45,8 +45,13 @@ class _MenuDrawerState extends State<MenuDrawer> {
           }),
           _addMenuItem(Text("ÜRÜN BİLGİLERİ"),
               leading: Icon(Icons.document_scanner)),
-          _addMenuItem(Text("PROFİLİM"),
-              leading: Icon(Icons.supervised_user_circle)),
+          _addMenuItem(
+            Text("PROFİLİM"),
+            leading: Icon(Icons.supervised_user_circle),
+            onTap: () {
+              Navigator.of(context).pushNamed("myProfile");
+            },
+          ),
         ],
       ),
     );
