@@ -30,7 +30,7 @@ class _SymbolAddDetailState extends State<SymbolAddDetail> {
                 decoration: BoxDecoration(color: Colors.grey),
               ),
               // getSymbolList("ABIBTV", "AKBNK C 31023 0016.40 IYM 00000.5 NA"),
-              Expanded(child: test())
+              Expanded(child: getScroolView())
             ],
           ),
         ));
@@ -48,7 +48,7 @@ class _SymbolAddDetailState extends State<SymbolAddDetail> {
     checkedList = Map.fromIterables(a, b);
   }
 
-  SingleChildScrollView test() {
+  SingleChildScrollView getScroolView() {
     return SingleChildScrollView(
       physics: ScrollPhysics(),
       child: Column(

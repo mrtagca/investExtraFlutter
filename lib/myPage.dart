@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:investextraqnb/components/menu/base/appScaffold.dart';
 import 'package:investextraqnb/components/menu/base/baseAppBar.dart';
 import 'package:investextraqnb/components/menu/menuDrawer.dart';
-import 'package:investextraqnb/components/news/newsItem.dart';
+import 'package:investextraqnb/components/news/investAdivseNews.dart';
+import 'package:investextraqnb/components/news/news.dart';
 import 'package:investextraqnb/components/pop/baseWillPopScope.dart';
 import 'package:investextraqnb/components/prices/followerStockItem.dart';
 
@@ -42,11 +43,12 @@ class _MyPageState extends State<MyPage> {
                 child: Column(
                   children: [
                     Container(
+                      margin: EdgeInsets.only(bottom: 10, top: 10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
                         color: Colors.grey[200],
                       ),
-                      height: 300,
+                      height: 400,
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
@@ -69,8 +71,7 @@ class _MyPageState extends State<MyPage> {
                                     icon: Icon(Icons.add_circle)),
                               ),
                             ),
-                            Scrollbar(
-                                child: Column(
+                            Column(
                               children: [
                                 FollowerStockItem(
                                   stockItemTickType: StockItemTickType.Up,
@@ -100,51 +101,101 @@ class _MyPageState extends State<MyPage> {
                                   instrumentChangeRate: 0.10,
                                   instrumentChangeDate: DateTime(2023),
                                 ),
-                                // generateStockItem("UP"),
-                                // generateStockItem("DOWN"),
-                                // generateStockItem("NOTR"),
-                                // generateStockItem("UP"),
-                                // generateStockItem("DOWN"),
-                                // generateStockItem("NOTR"),
+                                FollowerStockItem(
+                                  stockItemTickType: StockItemTickType.Up,
+                                  instrumentName: "USDTRY",
+                                  instrumentPrice: 18.9134,
+                                  instrumentChangeRate: 0.10,
+                                  instrumentChangeDate: DateTime(2023),
+                                ),
+                                FollowerStockItem(
+                                  stockItemTickType: StockItemTickType.Up,
+                                  instrumentName: "USDTRY",
+                                  instrumentPrice: 18.9134,
+                                  instrumentChangeRate: 0.10,
+                                  instrumentChangeDate: DateTime(2023),
+                                ),
+                                FollowerStockItem(
+                                  stockItemTickType: StockItemTickType.Up,
+                                  instrumentName: "USDTRY",
+                                  instrumentPrice: 18.9134,
+                                  instrumentChangeRate: 0.10,
+                                  instrumentChangeDate: DateTime(2023),
+                                ),
                                 Divider(),
                               ],
-                            ))
+                            )
                           ],
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: Container(
-                        height: 300,
-                        decoration: BoxDecoration(
-                            color: Colors.grey[200],
-                            borderRadius: BorderRadius.circular(10)),
-                        child: SingleChildScrollView(
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 30),
-                            child: Column(
-                              children: [
-                                Card(
-                                  color: Colors.grey[200],
-                                  child: ListTile(
-                                    leading: Icon(Icons.newspaper),
-                                    title: Text(
-                                      "Y.D. SON GÜNCELLEMELER",
-                                      style: TextStyle(
-                                          fontFamily: "RobotoBold",
-                                          color: Colors.grey[700],
-                                          letterSpacing: 0.5),
-                                    ),
+                    Container(
+                      margin: EdgeInsets.only(bottom: 10, top: 10),
+                      height: 400,
+                      decoration: BoxDecoration(
+                          color: Colors.grey[200],
+                          borderRadius: BorderRadius.circular(12)),
+                      child: SingleChildScrollView(
+                        child: Container(
+                          margin: EdgeInsets.only(bottom: 20),
+                          child: Column(
+                            children: [
+                              Card(
+                                color: Colors.grey[200],
+                                child: ListTile(
+                                  leading: Icon(Icons.newspaper),
+                                  title: Text(
+                                    "HABERLER",
+                                    style: TextStyle(
+                                        fontFamily: "RobotoBold",
+                                        letterSpacing: 0.5,
+                                        color: Colors.grey[700]),
                                   ),
                                 ),
-                                generateNewsItem(),
-                                generateNewsItem(),
-                                generateNewsItem(),
-                                generateNewsItem(),
-                                generateNewsItem(),
-                              ],
-                            ),
+                              ),
+                              NewsItem.generateNewsItem(),
+                              NewsItem.generateNewsItem(),
+                              NewsItem.generateNewsItem(),
+                              NewsItem.generateNewsItem(),
+                              NewsItem.generateNewsItem(),
+                              NewsItem.generateNewsItem(),
+                              Divider()
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(bottom: 10, top: 10),
+                      height: 500,
+                      decoration: BoxDecoration(
+                          color: Colors.grey[200],
+                          borderRadius: BorderRadius.circular(10)),
+                      child: SingleChildScrollView(
+                        child: Container(
+                          margin: EdgeInsets.only(bottom: 20),
+                          child: Column(
+                            children: [
+                              Card(
+                                color: Colors.grey[200],
+                                child: ListTile(
+                                  leading: Icon(Icons.newspaper),
+                                  title: Text(
+                                    "Y.D. SON GÜNCELLEMELER",
+                                    style: TextStyle(
+                                        fontFamily: "RobotoBold",
+                                        color: Colors.grey[700],
+                                        letterSpacing: 0.5),
+                                  ),
+                                ),
+                              ),
+                              InvestAdviseNewsItem.generateNewsItem(),
+                              InvestAdviseNewsItem.generateNewsItem(),
+                              InvestAdviseNewsItem.generateNewsItem(),
+                              InvestAdviseNewsItem.generateNewsItem(),
+                              InvestAdviseNewsItem.generateNewsItem(),
+                              InvestAdviseNewsItem.generateNewsItem()
+                            ],
                           ),
                         ),
                       ),
@@ -156,13 +207,6 @@ class _MyPageState extends State<MyPage> {
           ),
         ),
       ),
-    );
-  }
-
-  Widget generateNewsItem() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 5, right: 15, left: 15, bottom: 5),
-      child: NewsItem(),
     );
   }
 

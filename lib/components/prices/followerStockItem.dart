@@ -69,11 +69,11 @@ class _FollowerStockItemState extends State<FollowerStockItem> {
         child: Ink(
           child: Padding(
             padding:
-                const EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 15),
+                const EdgeInsets.only(left: 8, right: 8, top: 5, bottom: 15),
             child: Row(
               children: [
                 Container(
-                  height: 50,
+                  height: 45,
                   width: 5,
                   decoration: BoxDecoration(
                       color: _color,
@@ -90,7 +90,7 @@ class _FollowerStockItemState extends State<FollowerStockItem> {
                             bottomLeft: Radius.circular(2.5),
                             topRight: Radius.circular(5),
                             bottomRight: Radius.circular(5))),
-                    height: 50,
+                    height: 45,
                     width: double.infinity,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -100,7 +100,7 @@ class _FollowerStockItemState extends State<FollowerStockItem> {
                           width: 100,
                           //color: Colors.amber,
                           child: Padding(
-                            padding: const EdgeInsets.only(top: 20, left: 10),
+                            padding: const EdgeInsets.only(top: 15, left: 5),
                             child: Text(
                               _instrumentName,
                               style: TextStyle(

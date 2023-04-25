@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 
-class NewsItem extends StatelessWidget {
-  const NewsItem({
+class InvestAdviseNewsItem extends StatelessWidget {
+  const InvestAdviseNewsItem({
     super.key,
   });
+
+  static Widget generateNewsItem() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 5, right: 15, left: 15, bottom: 5),
+      child: InvestAdviseNewsItem(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

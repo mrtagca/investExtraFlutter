@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:investextraqnb/components/menu/base/baseAppBar.dart';
 import 'package:investextraqnb/components/menu/menuDrawer.dart';
-import 'package:investextraqnb/components/news/newsItem.dart';
+import 'package:investextraqnb/components/news/investAdivseNews.dart';
 
 class InvestAdviseTab extends StatefulWidget {
   const InvestAdviseTab({super.key});
@@ -46,15 +46,15 @@ class _InvestAdviseTabState extends State<InvestAdviseTab>
                 padding: const EdgeInsets.all(10),
                 child: Column(
                   children: [
-                    NewsItem(),
-                    NewsItem(),
-                    NewsItem(),
-                    NewsItem(),
-                    NewsItem(),
-                    NewsItem(),
-                    NewsItem(),
-                    NewsItem(),
-                    NewsItem(),
+                    InvestAdviseNewsItem(),
+                    InvestAdviseNewsItem(),
+                    InvestAdviseNewsItem(),
+                    InvestAdviseNewsItem(),
+                    InvestAdviseNewsItem(),
+                    InvestAdviseNewsItem(),
+                    InvestAdviseNewsItem(),
+                    InvestAdviseNewsItem(),
+                    InvestAdviseNewsItem(),
                   ],
                 ),
               ),
