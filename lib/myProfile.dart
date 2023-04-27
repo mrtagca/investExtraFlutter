@@ -88,10 +88,10 @@ class _MyProfileState extends State<MyProfile> {
                           child: Column(
                             children: [
                               generateProfileInfoRow(
-                                  "E-mail", "mert.agca@qnbfi.com"),
-                              generateProfileInfoRow("Şube", "KRİSTAL KULE"),
+                                  "E-mail", "mrtagcaa@gmail.com"),
+                              generateProfileInfoRow("Şube", "İstanbul"),
                               generateProfileInfoRow(
-                                  "Bölge", "QNB Finansinvest"),
+                                  "Bölge", "Marmara"),
                             ],
                           ),
                         ),
